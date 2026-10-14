@@ -23,7 +23,7 @@ cd aravalli-agritech
 cp backend/.env.example backend/.env
 # Edit backend/.env and add your keys:
 #   GEMINI_API_KEY=your_gemini_key
-#   GEMINI_MODEL=gemini-2.0-flash-exp
+#   GEMINI_MODEL=gemini-3.8-flash
 #   OPENWEATHERMAP_API_KEY=your_owm_key
 ```
 

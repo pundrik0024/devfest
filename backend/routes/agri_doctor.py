@@ -48,11 +48,11 @@ async def agri_doctor(req: AgriDoctorRequest):
         err_msg = str(e)
         if "API_KEY_INVALID" in err_msg or "API key not valid" in err_msg or "GEMINI_API_KEY" in err_msg:
             answer = (
-                "⚠️ AI Agri-Doctor is not yet configured. Please add your GEMINI_API_KEY to backend/.env and restart the server. "
-                "In the meantime, contact your local Krishi Vigyan Kendra or call the [Helpline number] for expert advice."
+                "⚠️ AI Agri-Doctor is not configured on the server. Add a valid GEMINI_API_KEY in the backend deployment's environment settings, then restart or redeploy it. "
+                "In the meantime, contact your local Krishi Vigyan Kendra for expert advice."
                 if req.lang == "en" else
-                "⚠️ AI कृषि-डॉक्टर अभी सेट नहीं है। backend/.env में GEMINI_API_KEY डालें और सर्वर पुनः शुरू करें। "
-                "इस बीच, अपने स्थानीय कृषि विज्ञान केंद्र से संपर्क करें या [हेल्पलाइन नंबर] पर कॉल करें।"
+                "⚠️ AI कृषि-डॉक्टर सर्वर पर सेट नहीं है। बैकएंड की deployment environment settings में सही GEMINI_API_KEY जोड़ें और सर्वर restart या redeploy करें। "
+                "इस बीच, विशेषज्ञ सलाह के लिए अपने स्थानीय कृषि विज्ञान केंद्र से संपर्क करें।"
             )
         else:
             raise HTTPException(status_code=503, detail=f"AI service error: {err_msg}")

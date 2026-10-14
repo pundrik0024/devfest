@@ -25,6 +25,7 @@ app.add_middleware(
         "http://localhost:5173",
         "http://localhost:4173",
         "http://127.0.0.1:5173",
+        "https://devfest-dusky.vercel.app",
         *[origin.strip() for origin in os.getenv("FRONTEND_ORIGINS", "").split(",") if origin.strip()],
     ],
     allow_origin_regex=r"https://.*\.vercel\.app",
