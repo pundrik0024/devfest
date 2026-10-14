@@ -3,6 +3,7 @@ import { Loader2, AlertTriangle, Download, Satellite } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { SampleDataLabel, SampleDataBanner, AIDisclaimer } from '../components/ui/SampleDataLabel'
 import { useLang } from '../context/LangContext'
+import { apiFetch } from '../lib/api'
 
 const RISK_CONFIG = {
   Low:      { cls: 'badge-green',  color: 'text-green-700',  bg: 'bg-green-100'  },
@@ -30,7 +31,7 @@ export default function SoilPlan() {
   const [kitAdded, setKitAdded] = useState(false)
 
   useEffect(() => {
-    fetch('/api/soil-plan')
+    apiFetch('/api/soil-plan')
       .then(r => r.json())
       .then(d => setData(d))
       .catch(() => setError('Could not load soil plan data'))

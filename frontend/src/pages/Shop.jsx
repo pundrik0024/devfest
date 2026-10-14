@@ -5,6 +5,7 @@ import { useLang } from '../context/LangContext'
 import { useCart } from '../context/CartContext'
 import { SampleDataLabel, SampleDataBanner } from '../components/ui/SampleDataLabel'
 import ProductCard from '../components/ui/ProductCard'
+import { apiFetch } from '../lib/api'
 
 const SORT_OPTIONS = [
   { value: 'recommended', label: 'Top Recommended' },
@@ -46,7 +47,7 @@ export default function Shop() {
     setLoading(true)
     const params = new URLSearchParams({ category, sort, page, per_page: 9 })
     if (search) params.set('search', search)
-    fetch(`/api/products?${params}`)
+    apiFetch(`/api/products?${params}`)
       .then(r => r.json())
       .then(d => {
         setProducts(d.products || [])

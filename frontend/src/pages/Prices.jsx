@@ -5,6 +5,7 @@ import { useSpeech } from '../hooks/useSpeech'
 import { useLang } from '../context/LangContext'
 import { SampleDataLabel, AIDisclaimer, SampleDataBanner } from '../components/ui/SampleDataLabel'
 import OutlookCalendar from '../components/ui/OutlookCalendar'
+import { apiFetch } from '../lib/api'
 
 const TREND_ICON = {
   up:     <TrendingUp className="w-4 h-4 text-green-600" />,
@@ -24,13 +25,13 @@ export default function Prices() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`/api/prices?location=Udaipur&lang=${lang === 'hi' ? 'hi' : 'en'}`)
+    apiFetch(`/api/prices?location=Udaipur&lang=${lang === 'hi' ? 'hi' : 'en'}`)
       .then(r => r.json())
       .then(d => setData(d))
       .catch(() => setError('Could not load prices'))
       .finally(() => setLoading(false))
 
-    fetch('/api/outlook?crop=tomato')
+    apiFetch('/api/outlook?crop=tomato')
       .then(r => r.json())
       .then(d => setOutlook(d.outlook || []))
       .catch(() => {})

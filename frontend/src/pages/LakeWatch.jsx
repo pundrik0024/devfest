@@ -4,6 +4,7 @@ import L from 'leaflet'
 import { Loader2, AlertTriangle, Droplets } from 'lucide-react'
 import { SampleDataLabel, SampleDataBanner } from '../components/ui/SampleDataLabel'
 import { useLang } from '../context/LangContext'
+import { apiFetch } from '../lib/api'
 
 // Fix Leaflet default icon path for bundlers
 delete L.Icon.Default.prototype._getIconUrl
@@ -27,7 +28,7 @@ export default function LakeWatch() {
   const [error, setError]   = useState('')
 
   useEffect(() => {
-    fetch('/api/lake-watch')
+    apiFetch('/api/lake-watch')
       .then(r => r.json())
       .then(d => setData(d))
       .catch(() => setError('Could not load lake watch data'))

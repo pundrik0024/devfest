@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Volume2, AlertTriangle, Loader2, Bell } from 'lucide-react'
 import { useSpeech } from '../hooks/useSpeech'
 import { useLang } from '../context/LangContext'
+import { apiFetch } from '../lib/api'
 
 const SEVERITY_CONFIG = {
   critical:  { cls: 'border-red-300 bg-red-50',    badge: 'badge-red',   dot: 'bg-red-500' },
@@ -17,7 +18,7 @@ export default function Alerts() {
   const [error, setError]     = useState('')
 
   useEffect(() => {
-    fetch('/api/alerts')
+    apiFetch('/api/alerts')
       .then(r => r.json())
       .then(d => setAlerts(d.alerts || []))
       .catch(() => setError('Could not load weather alerts'))

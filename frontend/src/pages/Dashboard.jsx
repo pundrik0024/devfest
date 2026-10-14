@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { Download, Filter, Loader2 } from 'lucide-react'
 import { SampleDataLabel, SampleDataBanner } from '../components/ui/SampleDataLabel'
+import { apiFetch } from '../lib/api'
 
 function downloadCSV(data, filename) {
   if (!data || !data.length) return
@@ -20,7 +21,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/dashboard')
+    apiFetch('/api/dashboard')
       .then(r => r.json())
       .then(d => setData(d))
       .catch(() => {})

@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext'
 import { SampleDataLabel, AIDisclaimer, SampleDataBanner } from '../components/ui/SampleDataLabel'
 import ProductCard from '../components/ui/ProductCard'
 import { useLang } from '../context/LangContext'
+import { apiFetch } from '../lib/api'
 
 const CONFIDENCE_CONFIG = {
   high:   { cls: 'badge-green',  label: 'High Confidence', icon: '✅' },
@@ -49,7 +50,7 @@ export default function CropDoctor() {
     const form = new FormData()
     form.append('image', scanFile)
     try {
-      const res = await fetch('/api/crop-doctor', { method: 'POST', body: form })
+      const res = await apiFetch('/api/crop-doctor', { method: 'POST', body: form })
       const data = await res.json()
       if (!res.ok) throw new Error(data.detail || 'Scan failed')
       setResult(data)

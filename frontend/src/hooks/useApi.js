@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { apiFetch } from '../lib/api'
 
 /**
  * Generic API fetch hook with loading/error state.
@@ -16,7 +17,7 @@ export function useApi(url, options = {}) {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch(target)
+      const res = await apiFetch(target)
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const json = await res.json()
       setData(json)

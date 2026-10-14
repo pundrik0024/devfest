@@ -4,6 +4,7 @@ import { Trash2, Plus, Minus, ShoppingCart, CheckCircle, Loader2, AlertTriangle 
 import { useCart } from '../context/CartContext'
 import { SampleDataLabel, SampleDataBanner } from '../components/ui/SampleDataLabel'
 import { useLang } from '../context/LangContext'
+import { apiFetch } from '../lib/api'
 
 export default function Cart() {
   const { t } = useLang()
@@ -24,7 +25,7 @@ export default function Cart() {
     }
     // First sync cart to backend
     for (const item of items) {
-      await fetch('/api/cart', {
+      await apiFetch('/api/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: sessionId, product_id: item.product.id, qty: item.qty }),
@@ -34,7 +35,7 @@ export default function Cart() {
     setPlacing(true)
     setError('')
     try {
-      const res = await fetch('/api/orders', {
+      const res = await apiFetch('/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

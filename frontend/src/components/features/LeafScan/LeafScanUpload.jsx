@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Camera, Upload, Loader2, AlertCircle, X, ScanLine } from 'lucide-react'
 import { useLang } from '../../../context/LangContext'
+import { apiFetch } from '../../../lib/api'
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024 // 5 MB
 
@@ -107,7 +108,7 @@ export default function LeafScanUpload({ onScanComplete }) {
       const formData = new FormData()
       formData.append('image', selectedFile)
 
-      const response = await fetch('/api/crop-doctor', {
+      const response = await apiFetch('/api/crop-doctor', {
         method: 'POST',
         body: formData,
       })

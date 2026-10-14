@@ -9,6 +9,7 @@ import { useCart } from '../context/CartContext'
 import { SampleDataLabel, AIDisclaimer, SampleDataBanner } from '../components/ui/SampleDataLabel'
 import OutlookCalendar from '../components/ui/OutlookCalendar'
 import ProductCard from '../components/ui/ProductCard'
+import { apiFetch } from '../lib/api'
 
 // ── Static data ────────────────────────────────────────────────────
 const SERVICE_TILES = [
@@ -80,12 +81,12 @@ export default function Home() {
 
   // Load outlook + products on mount
   useEffect(() => {
-    fetch('/api/outlook?crop=tomato')
+    apiFetch('/api/outlook?crop=tomato')
       .then(r => r.json())
       .then(d => setOutlook(d.outlook || []))
       .catch(() => {})
 
-    fetch('/api/products?per_page=5')
+    apiFetch('/api/products?per_page=5')
       .then(r => r.json())
       .then(d => setProducts(d.products || []))
       .catch(() => {})
@@ -102,7 +103,7 @@ export default function Home() {
     setAiError('')
     setAiAnswer('')
     try {
-      const res = await fetch('/api/agri-doctor', {
+      const res = await apiFetch('/api/agri-doctor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question, lang: lang === 'hi' ? 'hi' : 'en', location: 'Udaipur, Rajasthan' }),
@@ -123,7 +124,7 @@ export default function Home() {
     const form = new FormData()
     form.append('image', scanFile)
     try {
-      const res = await fetch('/api/crop-doctor', { method: 'POST', body: form })
+      const res = await apiFetch('/api/crop-doctor', { method: 'POST', body: form })
       const data = await res.json()
       navigate('/crop-doctor', { state: { result: data, filename: scanFile.name } })
     } catch {

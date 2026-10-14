@@ -3,6 +3,7 @@ import { Mic, MicOff, Send, Volume2, RefreshCw, Loader2, AlertCircle } from 'luc
 import { useSpeech } from '../../../hooks/useSpeech'
 import { useLang } from '../../../context/LangContext'
 import { AIDisclaimer } from '../../ui/SampleDataLabel'
+import { apiFetch } from '../../../lib/api'
 
 // Location constants for Udaipur, Rajasthan
 const LOCATION_LABEL = 'Udaipur, Rajasthan'
@@ -83,7 +84,7 @@ export default function AgriDoctorPanel() {
     setApiError(null)
 
     try {
-      const res = await fetch('/api/agri-doctor', {
+      const res = await apiFetch('/api/agri-doctor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
