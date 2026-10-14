@@ -4,11 +4,11 @@ Gemini Flash service — wraps google-genai SDK.
 Keys come from environment ONLY.
 """
 
+import asyncio
 import os
 import json
 import base64
 import re
-import time
 from google import genai
 from google.genai import types
 
@@ -24,11 +24,11 @@ def _get_model() -> str:
     return os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
 
 
-def _generate_content_with_retry(client: genai.Client, **kwargs):
+async def _generate_content_with_retry(client: genai.Client, **kwargs):
     """Retry briefly when Gemini reports temporary rate limiting or overload."""
     for attempt in range(3):
         try:
-            return client.models.generate_content(**kwargs)
+            return await asyncio.to_thread(client.models.generate_content, **kwargs)
         except Exception as exc:
             code = getattr(exc, "code", None)
             status = str(getattr(exc, "status", "")).upper()
@@ -41,7 +41,7 @@ def _generate_content_with_retry(client: genai.Client, **kwargs):
             )
             if not transient or attempt == 2:
                 raise
-            time.sleep(1 * (2 ** attempt))
+            await asyncio.sleep(1 * (2 ** attempt))
 
 
 def _extract_json(text: str) -> dict | list:
@@ -75,7 +75,7 @@ async def ask_agri_doctor(question: str, lang: str, context: dict) -> str:
         f"Context data (use ONLY this):\n{json.dumps(context, ensure_ascii=False, indent=2)}"
     )
 
-    response = _generate_content_with_retry(
+    response = await _generate_content_with_retry(
         client,
         model=model,
         contents=[{"role": "user", "parts": [{"text": user_message}]}],
@@ -128,7 +128,7 @@ async def analyse_crop_image(image_bytes: bytes, mime_type: str = "image/jpeg") 
     image_part = types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
     text_part = types.Part.from_text(text="Analyse this crop leaf image and return the JSON diagnosis.")
 
-    response = _generate_content_with_retry(
+    response = await _generate_content_with_retry(
         client,
         model=model,
         contents=[types.Content(role="user", parts=[image_part, text_part])],
@@ -176,7 +176,7 @@ async def write_remediation_plan(soil_data: dict) -> list:
 
     user_message = f"Soil data:\n{json.dumps(soil_data, ensure_ascii=False, indent=2)}"
 
-    response = _generate_content_with_retry(
+    response = await _generate_content_with_retry(
         client,
         model=model,
         contents=[{"role": "user", "parts": [{"text": user_message}]}],
@@ -213,7 +213,7 @@ async def write_sell_timing_advice(crop_data: dict, lang: str = "en") -> str:
 
     user_message = f"Mandi and crop data:\n{json.dumps(crop_data, ensure_ascii=False, indent=2)}"
 
-    response = _generate_content_with_retry(
+    response = await _generate_content_with_retry(
         client,
         model=model,
         contents=[{"role": "user", "parts": [{"text": user_message}]}],
