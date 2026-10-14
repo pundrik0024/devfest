@@ -1,0 +1,86 @@
+{
+  "crops": {
+    "tomato": {
+      "name_en": "Tomato",
+      "name_hi": "टमाटर",
+      "opt_temp_min": 18,
+      "opt_temp_max": 32,
+      "heat_stress_temp": 38,
+      "heavy_rain_threshold": 15,
+      "disease_humidity": 80,
+      "spray_wind_limit": 12,
+      "spray_temp_min": 20,
+      "spray_temp_max": 34,
+      "min_rain_per_week": 5,
+      "max_rain_per_week": 40
+    },
+    "mustard": {
+      "name_en": "Mustard",
+      "name_hi": "सरसों",
+      "opt_temp_min": 10,
+      "opt_temp_max": 25,
+      "heat_stress_temp": 35,
+      "heavy_rain_threshold": 20,
+      "disease_humidity": 75,
+      "spray_wind_limit": 10,
+      "spray_temp_min": 12,
+      "spray_temp_max": 28,
+      "min_rain_per_week": 2,
+      "max_rain_per_week": 25
+    },
+    "chana": {
+      "name_en": "Chana / Gram",
+      "name_hi": "चना",
+      "opt_temp_min": 15,
+      "opt_temp_max": 28,
+      "heat_stress_temp": 35,
+      "heavy_rain_threshold": 18,
+      "disease_humidity": 78,
+      "spray_wind_limit": 12,
+      "spray_temp_min": 15,
+      "spray_temp_max": 30,
+      "min_rain_per_week": 3,
+      "max_rain_per_week": 30
+    },
+    "wheat": {
+      "name_en": "Wheat",
+      "name_hi": "गेहूँ",
+      "opt_temp_min": 12,
+      "opt_temp_max": 25,
+      "heat_stress_temp": 33,
+      "heavy_rain_threshold": 20,
+      "disease_humidity": 80,
+      "spray_wind_limit": 10,
+      "spray_temp_min": 12,
+      "spray_temp_max": 28,
+      "min_rain_per_week": 2,
+      "max_rain_per_week": 20
+    },
+    "maize": {
+      "name_en": "Maize",
+      "name_hi": "मक्का",
+      "opt_temp_min": 18,
+      "opt_temp_max": 33,
+      "heat_stress_temp": 40,
+      "heavy_rain_threshold": 25,
+      "disease_humidity": 82,
+      "spray_wind_limit": 15,
+      "spray_temp_min": 20,
+      "spray_temp_max": 36,
+      "min_rain_per_week": 8,
+      "max_rain_per_week": 60
+    },
+    "default": {
+      "opt_temp_min": 18,
+      "opt_temp_max": 32,
+      "heat_stress_temp": 40,
+      "heavy_rain_threshold": 20,
+      "disease_humidity": 80,
+      "spray_wind_limit": 12,
+      "spray_temp_min": 18,
+      "spray_temp_max": 34,
+      "min_rain_per_week": 5,
+      "max_rain_per_week": 40
+    }
+  }
+}

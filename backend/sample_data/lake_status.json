@@ -1,0 +1,72 @@
+{
+  "_note": "SAMPLE DATA — Lake and watershed levels are illustrative. Not real-time telemetry.",
+  "location": "Udaipur Basin, Rajasthan",
+  "updated": "2025-01-15T10:00:00+05:30",
+  "lakes": [
+    {
+      "id": "pichola",
+      "name": "Lake Pichola",
+      "status": "Good",
+      "level_pct": 92,
+      "full_level": "13.15 ft",
+      "current_level": "12.10 ft",
+      "inflow_status": "Active",
+      "gate_open": true,
+      "gate_note": "Feeder gate opening scheduled for monsoon-calibrated channel monitoring",
+      "irrigation_impact": "Safe & Stable",
+      "color": "green"
+    },
+    {
+      "id": "mavli",
+      "name": "Lake Mavli",
+      "status": "Good",
+      "level_pct": 88,
+      "full_level": "11.00 ft",
+      "current_level": "9.68 ft",
+      "inflow_status": "Borehole Stable",
+      "gate_open": false,
+      "gate_note": "Seepage Drain fill regulation downstream head-flow to downstream stations",
+      "irrigation_impact": "Monitoring Active",
+      "color": "green"
+    },
+    {
+      "id": "master_feeder",
+      "name": "Master Feeder Streams",
+      "status": "Healthy Flow",
+      "flow_status": "Mild Flow",
+      "flow_detail": "Stable in Chota Channels",
+      "watershed_note": "Watershed recharging rechargers in Bagura to Varma agricultural chambers",
+      "aquifer_impact": "Tube-wells recharging",
+      "color": "blue"
+    },
+    {
+      "id": "udibhagar",
+      "name": "Udibhagar Basin",
+      "status": "Alert",
+      "level_pct": 79,
+      "depletion_note": "Most Groundwater Level",
+      "alert_note": "Calibrated EC low-discharge canals use monitoring — discharge running directly without testing",
+      "irrigation_impact": "Soil Salinity Risk",
+      "color": "orange"
+    }
+  ],
+  "watershed_map": {
+    "center_lat": 24.5854,
+    "center_lon": 73.7125,
+    "zoom": 10,
+    "recharge_zones": [
+      { "name": "Mavli Recharge Zone", "lat": 24.7, "lon": 73.9, "status": "active" },
+      { "name": "Girwa Nallah", "lat": 24.62, "lon": 73.75, "status": "monitoring" },
+      { "name": "Fatehsagar Catchment", "lat": 24.61, "lon": 73.68, "status": "active" }
+    ],
+    "stream_network": [
+      { "name": "Berach River", "type": "perennial", "status": "flowing" },
+      { "name": "Gambhiri River", "type": "seasonal", "status": "seasonal" }
+    ],
+    "stats": {
+      "area_sq_km": 362,
+      "recharge_zone_pct": 38,
+      "irrigation_density": "19.2 km/100ha"
+    }
+  }
+}

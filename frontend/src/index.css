@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ───────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    font-family: 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-surface text-text-primary;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* Visible focus rings — keyboard accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* No horizontal scroll at page level — scroll only inside containers */
+  main { overflow-x: hidden; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ── Components ─────────────────────────────────────── */
+@layer components {
+
+  /* Cards */
+  .card {
+    @apply bg-card rounded-card shadow-card border border-border p-4;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-amber text-white font-semibold text-sm
+           px-4 py-2.5 rounded-button
+           hover:bg-amber-dark active:scale-95
+           transition-all duration-150
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber
+           disabled:opacity-50 disabled:cursor-not-allowed
+           min-h-[44px];
+  }
+
+  .btn-green {
+    @apply inline-flex items-center justify-center gap-2
+           bg-primary text-white font-semibold text-sm
+           px-4 py-2.5 rounded-button
+           hover:bg-primary-800 active:scale-95
+           transition-all duration-150
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary
+           disabled:opacity-50 disabled:cursor-not-allowed
+           min-h-[44px];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border border-primary text-primary font-semibold text-sm
+           px-4 py-2.5 rounded-button
+           hover:bg-primary-50 active:scale-95
+           transition-all duration-150
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary
+           disabled:opacity-50 disabled:cursor-not-allowed
+           min-h-[44px];
+  }
+
+  /* Badges / chips */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-chip
+           text-xs font-semibold;
+  }
+  .badge-green  { @apply badge bg-primary-50 text-primary-700; }
+  .badge-amber  { @apply badge bg-amber-light text-amber-dark; }
+  .badge-orange { @apply badge bg-orange-light text-orange; }
+  .badge-red    { @apply badge bg-red-50 text-red-700; }
+  .badge-blue   { @apply badge bg-blue-50 text-blue-700; }
+  .badge-gray   { @apply badge bg-gray-100 text-gray-600; }
+
+  /* Status chips for outlook */
+  .status-optimal      { @apply badge bg-green-100 text-green-800; }
+  .status-caution      { @apply badge bg-amber-100 text-amber-800; }
+  .status-not_suitable { @apply badge bg-red-100 text-red-800; }
+  .status-spray_ok     { @apply badge bg-blue-100 text-blue-800; }
+  .status-data_unavailable { @apply badge bg-gray-100 text-gray-600; }
+
+  /* Sample data label */
+  .sample-label {
+    @apply inline-flex items-center gap-1 text-xxs font-medium
+           text-amber-700 bg-amber-50 border border-amber-200
+           px-1.5 py-0.5 rounded;
+  }
+
+  /* AI disclaimer */
+  .ai-disclaimer {
+    @apply text-xs text-text-muted italic mt-1;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-xl md:text-2xl font-bold text-text-primary mb-1;
+  }
+
+  /* Divider */
+  .section-divider {
+    @apply border-t border-border my-6;
+  }
+
+  /* Horizontal scroll container (tables, calendar) */
+  .h-scroll {
+    @apply overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #E5E7EB transparent;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full border border-border rounded-button px-3 py-2 text-sm
+           focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary
+           bg-white placeholder:text-text-muted;
+  }
+}
+
+/* ── Utilities ──────────────────────────────────────── */
+@layer utilities {
+  .min-touch { min-height: 44px; min-width: 44px; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ── Leaflet fixes ──────────────────────────────────── */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 12px;
+}
+
+/* ── Mic pulse animation ─────────────────────────────── */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(26,107,42,0.5); }
+  70%  { transform: scale(1);   box-shadow: 0 0 0 14px rgba(26,107,42,0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(26,107,42,0); }
+}
+.mic-pulse { animation: pulse-ring 1.4s ease infinite; }
+
+/* ── Bottom tab safe area ────────────────────────────── */
+.bottom-tabs {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}

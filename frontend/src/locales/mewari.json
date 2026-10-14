@@ -1,0 +1,14 @@
+{
+  "_note": "MEWARI LOCALE — All strings below are PLACEHOLDERS and need native speaker review. Do NOT use AI-generated Mewari strings in production without validation by a fluent Mewari speaker.",
+  "nav.home": "[मेवाड़ी: घर - needs review]",
+  "nav.cropDoctor": "[मेवाड़ी: फसल वैद - needs review]",
+  "nav.shopInputs": "[मेवाड़ी: इनपुट खरीद - needs review]",
+  "nav.soilPlan": "[मेवाड़ी: माटी योजना - needs review]",
+  "nav.cropPrices": "[मेवाड़ी: फसल भाव - needs review]",
+  "nav.weatherAlerts": "[मेवाड़ी: मौसम सूचना - needs review]",
+  "nav.lakeWatch": "[मेवाड़ी: तळाब निगरानी - needs review]",
+  "nav.myFarm": "[मेवाड़ी: म्हारो खेत - needs review]",
+  "sampleData.label": "[मेवाड़ी: नमूनो डेटो - needs review]",
+  "home.agriDoctor.title": "[मेवाड़ी: AI खेती वैद सूं बात - needs review]",
+  "aiDisclaimer.text": "[मेवाड़ी: AI सुझाव - needs review]"
+}

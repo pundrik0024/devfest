@@ -1,0 +1,44 @@
+{
+  "_note": "SAMPLE DATA — Illustrative soil values. Not real lab measurements. Always verify with a certified soil test.",
+  "location": "Girwa & Mavli Block, Udaipur",
+  "zone": "Zone IV-A (Sub-Humid Southern Plain)",
+  "area_ha": 2.3,
+  "sample_date": "2025-01-10",
+  "satellite_pass": "Sentinel-2 (10m resolution)",
+  "metrics": {
+    "moisture_pct": 28,
+    "moisture_status": "Dry (Fair — 22–35%)",
+    "organic_carbon_pct": 0.41,
+    "organic_carbon_status": "Low (Benchmark: >0.5%)",
+    "salinity_ds_m": 0.68,
+    "salinity_status": "Normal / Safe",
+    "ph": 7.9,
+    "ph_status": "Safe Calcareous",
+    "ph_detail": "Mildly alkaline loam",
+    "erosion_hydro_gradient": 2.3,
+    "erosion_direction": "Toward Mavli Nallah",
+    "erosion_status": "Moderate Risk (Risk)",
+    "erosion_note": "On-contour bunding or organised consolidation recommended as catchment-ward variant"
+  },
+  "degradation_index": 42,
+  "degradation_risk": "Medium",
+  "degradation_label": "Reconsider",
+  "spectral_ndre": {
+    "layer": "NDRE",
+    "image_date": "2025-01-12",
+    "resolution": "10m",
+    "low_ndre_area_pct": 35,
+    "high_stress_zones": 2,
+    "notes": "Chlorophyll deficit zones visible in NE quadrant"
+  },
+  "remediation_kit": {
+    "id": "kit-soil-rejuvenation",
+    "name": "Mavli Soil Rejuvenation Kit",
+    "description": "Vermicompost 05kg (organic grade), Zinc Sulphate Heptahydrate 21% 0.5kg, Mycorrhizal Bio-inoculant 120g, Bacillus Plate",
+    "price": 1240,
+    "original_price": 1499,
+    "saving_pct": 17,
+    "delivery": "Free delivery across Girwa & Mavli",
+    "payment": "Pay on Delivery (CoD/UPI)"
+  }
+}

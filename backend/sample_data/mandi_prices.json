@@ -1,0 +1,158 @@
+{
+  "_note": "SAMPLE DATA — Not real market prices. Replace with live AGMARKNET/e-NAM API for production.",
+  "location": "Southern Rajasthan (Udaipur Division)",
+  "updated": "2025-01-15T08:30:00+05:30",
+  "crops": [
+    {
+      "id": "tomato",
+      "name_en": "Tomato",
+      "name_hi": "टमाटर",
+      "variety": "Hybrid Himsona / Girwa Local",
+      "grade": "A+ / Hybrid",
+      "soil_preference": "Medium Black to Loamy soils",
+      "suitability_days": 9,
+      "soil_moisture_pct": 38,
+      "blight_risk": "Very Low (12%)",
+      "harvest_index": "A+ Grade",
+      "mandis": [
+        {
+          "id": "fatehpura",
+          "name_en": "Fatehpura Krishi Mandi",
+          "name_hi": "फतेहपुरा कृषि मंडी",
+          "distance_km": 8,
+          "price_per_kg": 28,
+          "price_per_quintal": 2800,
+          "trend": "rising",
+          "arrival": "High",
+          "pickup": "Regular pickup"
+        },
+        {
+          "id": "mavli",
+          "name_en": "Mavli Sub-Mandi",
+          "name_hi": "मावली सब-मंडी",
+          "distance_km": 26,
+          "price_per_kg": 24,
+          "price_per_quintal": 2400,
+          "trend": "stable",
+          "arrival": "Moderate",
+          "pickup": "Local sorting"
+        }
+      ],
+      "advice_key": "tomato_sell_timing"
+    },
+    {
+      "id": "mustard",
+      "name_en": "Mustard",
+      "name_hi": "सरसों",
+      "variety": "Pusa Bold / Girwa Alluvium",
+      "grade": "42% Oil Benchmark",
+      "soil_preference": "Loamy sand and calcareous clay",
+      "suitability_days": 12,
+      "mandis": [
+        {
+          "id": "fatehpura",
+          "name_en": "Fatehpura Krishi Mandi",
+          "distance_km": 8,
+          "price_per_kg": 56,
+          "price_per_quintal": 5600,
+          "trend": "stable",
+          "arrival": "Moderate"
+        },
+        {
+          "id": "vallabhnagar",
+          "name_en": "Vallabhnagar APMC",
+          "distance_km": 34,
+          "price_per_kg": 58,
+          "price_per_quintal": 5800,
+          "trend": "rising",
+          "arrival": "Top buyer bid"
+        }
+      ],
+      "advice_key": "mustard_sell_timing"
+    },
+    {
+      "id": "chana",
+      "name_en": "Chana / Gram",
+      "name_hi": "चना",
+      "variety": "Desi Chana",
+      "grade": "Desi Variety GNG-1581",
+      "soil_preference": "Sub-alkaline sub-soil moisture",
+      "suitability_days": 7,
+      "caution": true,
+      "caution_reason": "Elevated humidity risk on Day 6-8",
+      "mandis": [
+        {
+          "id": "fatehpura",
+          "name_en": "Fatehpura Krishi Mandi",
+          "distance_km": 8,
+          "price_per_kg": 62,
+          "price_per_quintal": 6200,
+          "trend": "stable",
+          "arrival": "Moderate"
+        },
+        {
+          "id": "mavli",
+          "name_en": "Mavli Sub-Mandi",
+          "distance_km": 26,
+          "price_per_kg": 61,
+          "price_per_quintal": 6100,
+          "trend": "stable",
+          "arrival": "Stable demand"
+        }
+      ],
+      "advice_key": "chana_sell_timing"
+    }
+  ],
+  "mandi_table": [
+    {
+      "yard": "Fatehpura Krishi Mandi",
+      "distance_km": 8,
+      "crop": "Tomato",
+      "variety": "Hybrid Himsona",
+      "price_per_kg": 28,
+      "price_per_quintal": 2800,
+      "trend": "up",
+      "arrival": "High"
+    },
+    {
+      "yard": "Mavli Yard",
+      "distance_km": 26,
+      "crop": "Tomato",
+      "variety": "Bhimsen",
+      "price_per_kg": 24,
+      "price_per_quintal": 2400,
+      "trend": "stable",
+      "arrival": "Moderate"
+    },
+    {
+      "yard": "Vallabhnagar APMC",
+      "distance_km": 34,
+      "crop": "Mustard",
+      "variety": "Pusa Bold",
+      "price_per_kg": 58,
+      "price_per_quintal": 5800,
+      "trend": "up",
+      "arrival": "Top buyer bid"
+    },
+    {
+      "yard": "Kapasan Mandi",
+      "distance_km": 48,
+      "crop": "Chana / Gram",
+      "variety": "Grain",
+      "price_per_kg": 59,
+      "price_per_quintal": 5900,
+      "trend": "down",
+      "arrival": "Heavy arrivals"
+    },
+    {
+      "yard": "Salumbar Mandi",
+      "distance_km": 68,
+      "crop": "Mustard & Coarse Grains",
+      "variety": "Mixed",
+      "price_per_kg": 55,
+      "price_per_quintal": 5500,
+      "trend": "stable",
+      "arrival": "Moderate"
+    }
+  ]
+}
