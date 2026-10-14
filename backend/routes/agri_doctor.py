@@ -5,7 +5,7 @@ import os
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from services.weather_service import get_forecast, get_current_weather
-from services.gemini_service import ask_agri_doctor
+from services.gemini_service import ask_agri_doctor, is_quota_exceeded
 
 router = APIRouter()
 
@@ -46,7 +46,13 @@ async def agri_doctor(req: AgriDoctorRequest):
         answer = await ask_agri_doctor(req.question, req.lang, context)
     except Exception as e:
         err_msg = str(e)
-        if "API_KEY_INVALID" in err_msg or "API key not valid" in err_msg or "GEMINI_API_KEY" in err_msg:
+        if is_quota_exceeded(e):
+            answer = (
+                "⚠️ The AI request limit for this Google AI project has been reached. Please try again after the quota resets, or enable billing in Google AI Studio for a higher limit."
+                if req.lang == "en" else
+                "⚠️ इस Google AI प्रोजेक्ट की AI अनुरोध सीमा पूरी हो गई है। कोटा रीसेट होने के बाद फिर कोशिश करें, या अधिक सीमा के लिए Google AI Studio में बिलिंग चालू करें।"
+            )
+        elif "API_KEY_INVALID" in err_msg or "API key not valid" in err_msg or "GEMINI_API_KEY" in err_msg:
             answer = (
                 "⚠️ AI Agri-Doctor is not configured on the server. Add a valid GEMINI_API_KEY in the backend deployment's environment settings, then restart or redeploy it. "
                 "In the meantime, contact your local Krishi Vigyan Kendra for expert advice."

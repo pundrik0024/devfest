@@ -24,12 +24,23 @@ def _get_model() -> str:
     return os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
 
 
+def is_quota_exceeded(exc: Exception) -> bool:
+    message = str(exc).upper()
+    return any(marker in message for marker in (
+        "EXCEEDED YOUR CURRENT QUOTA",
+        "GENERATE_CONTENT_FREE_TIER_REQUESTS",
+        "GENERATEREQUESTSPERDAYPERPROJECTPERMODEL",
+    ))
+
+
 async def _generate_content_with_retry(client: genai.Client, **kwargs):
     """Retry briefly when Gemini reports temporary rate limiting or overload."""
     for attempt in range(3):
         try:
             return await asyncio.to_thread(client.models.generate_content, **kwargs)
         except Exception as exc:
+            if is_quota_exceeded(exc):
+                raise
             code = getattr(exc, "code", None)
             status = str(getattr(exc, "status", "")).upper()
             message = str(exc).upper()
