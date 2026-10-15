@@ -36,7 +36,7 @@ export default function Footer() {
               <div className="w-7 h-7 bg-primary rounded-md flex items-center justify-center shrink-0">
                 <Leaf className="w-4 h-4 text-white" />
               </div>
-              <span className="font-bold text-primary text-sm">Aravalli Agri-Tech</span>
+              <span className="font-bold text-primary text-sm">Sentri</span>
             </div>
             <p className="text-xs text-text-muted leading-relaxed mb-3">
               Empowering growers of Southern Rajasthan across Girwa, Mavli, Vallabhnagar, Badgaon,
@@ -99,7 +99,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-border mt-8 pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-xxs text-text-muted">
-            © 2025 Aravalli Agri-Tech & Watershed Intelligence Portal. All rights reserved. &nbsp;
+            © 2025 Sentri. All rights reserved. &nbsp;
             <span className="sample-label">Sample data only — not for commercial use</span>
           </p>
           <div className="flex gap-4 text-xs text-text-muted">

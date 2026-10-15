@@ -36,7 +36,7 @@ export default function Header() {
             <Leaf className="w-5 h-5 text-white" />
           </div>
           <div className="hidden sm:block">
-            <div className="font-bold text-primary text-sm leading-tight">Aravalli Agri-Tech</div>
+            <div className="font-bold text-primary text-sm leading-tight">Sentri</div>
             <div className="text-xxs text-text-muted leading-tight">Watershed Intelligence</div>
           </div>
         </Link>

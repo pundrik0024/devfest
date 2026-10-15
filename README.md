@@ -1,4 +1,4 @@
-# Aravalli Agri-Tech & Watershed Intelligence
+# Sentri — Agricultural & Watershed Intelligence
 
 AI-powered agri-tech web app for Southern Rajasthan farmers — crop diagnostics, mandi prices, soil planning, watershed monitoring, and a verified inputs shop.
 

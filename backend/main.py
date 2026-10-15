@@ -1,6 +1,6 @@
 from __future__ import annotations
 """
-Aravalli Agri-Tech & Watershed Intelligence — FastAPI Backend
+Sentri — Agricultural & Watershed Intelligence API
 All secret keys are loaded from .env ONLY — never hardcoded.
 """
 
@@ -14,8 +14,8 @@ load_dotenv()
 from routes import agri_doctor, crop_doctor, soil_plan, prices, weather, alerts, shop, lake_watch, dashboard
 
 app = FastAPI(
-    title="Aravalli Agri-Tech API",
-    description="Backend for Aravalli Agri-Tech & Watershed Intelligence platform",
+    title="Sentri API",
+    description="Backend for Sentri agricultural and watershed intelligence platform",
     version="1.0.0",
 )
 

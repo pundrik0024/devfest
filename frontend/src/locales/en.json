@@ -20,7 +20,7 @@
   "header.helpline": "[Helpline number]",
   "header.zone": "Zone IV-A (Sub-Humid Southern Plain)",
 
-  "home.title": "Aravalli Agri-Tech & Watershed Intelligence",
+  "home.title": "Sentri",
   "home.subtitle": "Precision agro-hydrology monitor calibrated for Calcareous Aravalli Alluvium",
   "home.agriDoctor.title": "Talk to your AI Agri-Doctor",
   "home.agriDoctor.placeholder": "Type your question in Hindi or English...",
@@ -39,7 +39,7 @@
   "home.regionalCrop.title": "Browse by Regional Crop",
   "home.products.title": "Verified Crop Care Inputs",
   "home.outlook.title": "20-Day Agricultural Outlook",
-  "home.whyChoose.title": "Why Choose Aravalli Agri-Tech?",
+  "home.whyChoose.title": "Why Choose Sentri?",
 
   "sampleData.label": "Sample data",
   "aiDisclaimer.text": "AI suggestion. Check the product label and ask a local expert before use.",
@@ -90,7 +90,7 @@
   "alerts.hearInHindi": "Hear alerts in Hindi",
   "alerts.title": "Weather Alerts",
 
-  "footer.about": "About Aravalli Agri-Tech",
+  "footer.about": "About Sentri",
   "footer.services": "Services & Tools",
   "footer.crops": "Regional Crops",
   "footer.shop": "Shop Verified Inputs",

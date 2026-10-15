@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.png', 'icons/*.svg'],
       manifest: {
-        name: 'Aravalli Agri-Tech',
-        short_name: 'AravalliFarm',
+        name: 'Sentri',
+        short_name: 'Sentri',
         description: 'AI-powered agri-tech and watershed intelligence for Southern Rajasthan',
         theme_color: '#1A6B2A',
         background_color: '#F9FAFB',

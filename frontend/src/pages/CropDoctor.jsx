@@ -64,7 +64,7 @@ export default function CropDoctor() {
   const handleShare = async () => {
     const text = `Crop Doctor Result — ${diagnosis?.disease || ''} on ${diagnosis?.crop || ''}. Scan ID: ${scanId}`
     if (navigator.share) {
-      await navigator.share({ title: 'Aravalli Crop Doctor', text })
+      await navigator.share({ title: 'Sentri Crop Doctor', text })
     } else {
       navigator.clipboard.writeText(text)
       setShareMsg('Copied to clipboard!')

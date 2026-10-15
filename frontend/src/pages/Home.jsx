@@ -401,7 +401,7 @@ export default function Home() {
       </section>
 
       {/* ── 9. Why Choose ── */}
-      <section aria-label="Why Choose Aravalli Agri-Tech">
+      <section aria-label="Why Choose Sentri">
         <div className="bg-primary-50 rounded-card p-6">
           <h2 className="section-heading text-center mb-1">{t('home.whyChoose.title')}</h2>
           <p className="text-sm text-text-muted text-center mb-6">Built specifically for the agri-ecological micro-climates of Udaipur, Rajsamand, Dungarpur and Sirohi districts.</p>
