@@ -4,7 +4,7 @@ from __future__ import annotations
 import uuid
 import json
 from fastapi import APIRouter, UploadFile, File, HTTPException, Form
-from services.gemini_service import analyse_crop_image
+from services.gemini_service import analyse_crop_image, is_quota_exceeded
 from services.database import get_connection, init_db
 
 router = APIRouter()
@@ -49,8 +49,13 @@ async def crop_doctor(
     try:
         diagnosis = await analyse_crop_image(contents, image.content_type)
     except Exception as e:
-        raise HTTPException(status_code=422, detail=str(e))
-    except Exception as e:
+        if is_quota_exceeded(e):
+            raise HTTPException(
+                status_code=429,
+                detail="The AI image diagnosis quota has been reached. Try again after the quota resets, or enable billing for the Google AI project.",
+            )
+        if isinstance(e, ValueError):
+            raise HTTPException(status_code=422, detail=str(e))
         raise HTTPException(status_code=503, detail=f"AI service error: {str(e)}")
 
     products = _load_products()
